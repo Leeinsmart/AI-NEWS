@@ -4,624 +4,473 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>AI 日報 — 2026-05-31</title>
+<title>AI 日報 — 2026年6月7日</title>
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  body{background:#0a0a0f;color:#e0e0e0;font-family:'Segoe UI','Noto Sans TC',sans-serif;line-height:1.7;overflow-x:hidden}
-  a{color:#a29bfe;text-decoration:none;transition:color .2s}
-  a:hover{color:#fd79a8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a0a0f;color:#e0e0e0;font-family:'SF Pro Display','Noto Sans TC',sans-serif;line-height:1.7;overflow-x:hidden}
+  ::selection{background:rgba(108,92,231,0.4);color:#fff}
+  a{color:inherit}
 
   /* ===== NAV ===== */
-  .top-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 0}
-  .nav-inner{max-width:1100px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:0 20px}
-  .nav-btn{padding:8px 20px;border-radius:20px;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#ccc;cursor:pointer;transition:all .25s}
-  .nav-btn:hover,.nav-btn.active{background:linear-gradient(135deg,rgba(108,92,231,.25),rgba(253,121,168,.18));border-color:rgba(108,92,231,.5);color:#fff}
+  .top-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 0}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;flex-wrap:wrap;gap:10px}
+  .nav-brand{font-size:18px;font-weight:800;background:linear-gradient(135deg,#a29bfe,#fd79a8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .nav-links{display:flex;gap:6px;flex-wrap:wrap}
+  .nav-links a{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;color:#aaa;text-decoration:none;border:1px solid rgba(255,255,255,0.08);transition:all .25s}
+  .nav-links a:hover{color:#fff;border-color:rgba(108,92,231,0.5);background:rgba(108,92,231,0.12)}
 
   /* ===== HERO ===== */
-  .hero{text-align:center;padding:60px 20px 40px;position:relative}
-  .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(108,92,231,.12),transparent 70%);pointer-events:none}
-  .hero h1{font-size:clamp(28px,5vw,42px);font-weight:800;background:linear-gradient(135deg,#a29bfe,#fd79a8,#fdcb6e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .hero .date{color:#888;margin-top:8px;font-size:15px}
-
-  .container{max-width:1100px;margin:0 auto;padding:0 20px 60px}
+  .hero{text-align:center;padding:72px 24px 48px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(108,92,231,0.12),transparent 65%);pointer-events:none}
+  .hero h1{font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,#a29bfe,#55efc4,#fd79a8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+  .hero .date{color:#888;font-size:15px;font-weight:500}
+  .hero .sub{color:#aaa;font-size:14px;margin-top:14px;max-width:560px;margin-left:auto;margin-right:auto}
 
   /* ===== SECTION ===== */
-  .section{margin-top:56px}
-  .section-title{font-size:24px;font-weight:800;margin-bottom:28px;padding-left:16px;border-left:4px solid;display:flex;align-items:center;gap:10px}
-  .section-title.purple{border-color:#a29bfe;color:#a29bfe}
-  .section-title.pink{border-color:#fd79a8;color:#fd79a8}
-  .section-title.cyan{border-color:#55efc4;color:#55efc4}
-  .section-title.yellow{border-color:#fdcb6e;color:#fdcb6e}
+  .section{max-width:1200px;margin:0 auto;padding:48px 24px}
+  .section-header{display:flex;align-items:center;gap:12px;margin-bottom:32px}
+  .section-header .icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .section-header h2{font-size:clamp(20px,3vw,28px);font-weight:800;color:#fff}
+  .icon-model{background:linear-gradient(135deg,rgba(108,92,231,0.25),rgba(162,155,254,0.15))}
+  .icon-marketing{background:linear-gradient(135deg,rgba(253,121,168,0.25),rgba(253,203,110,0.15))}
+  .icon-stock{background:linear-gradient(135deg,rgba(85,239,196,0.25),rgba(0,206,209,0.15))}
+  .icon-office{background:linear-gradient(135deg,rgba(253,203,110,0.25),rgba(255,165,0,0.15))}
 
-  .disclaimer-box{background:rgba(253,121,168,.06);border:1px solid rgba(253,121,168,.2);border-radius:10px;padding:14px 18px;margin-bottom:24px;font-size:13px;color:#bbb;line-height:1.6}
+  /* ===== DISCLAIMER BANNER ===== */
+  .skill-disclaimer{background:rgba(108,92,231,0.08);border:1px solid rgba(108,92,231,0.2);border-radius:12px;padding:14px 20px;margin-bottom:28px;font-size:13px;color:#bbb;line-height:1.6}
 
-  /* ===== MODEL CARD ===== */
-  .model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
-  .model-card{background:linear-gradient(145deg,rgba(25,25,40,.8),rgba(15,15,25,.9));border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
-  .model-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(108,92,231,.15)}
-  .model-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
-  .model-card.c-purple::before{background:linear-gradient(90deg,#6c5ce7,#a29bfe)}
-  .model-card.c-pink::before{background:linear-gradient(90deg,#fd79a8,#e84393)}
-  .model-card.c-cyan::before{background:linear-gradient(90deg,#00cec9,#55efc4)}
-  .model-card.c-yellow::before{background:linear-gradient(90deg,#fdcb6e,#f39c12)}
-  .model-card.c-blue::before{background:linear-gradient(90deg,#0984e3,#74b9ff)}
-  .model-card.c-green::before{background:linear-gradient(90deg,#00b894,#55efc4)}
-  .model-card.c-red::before{background:linear-gradient(90deg,#d63031,#ff7675)}
-  .model-card.c-orange::before{background:linear-gradient(90deg,#e17055,#fab1a0)}
-  .model-name{font-size:18px;font-weight:700;margin-bottom:4px}
-  .model-org{font-size:12px;color:#888;margin-bottom:12px}
-  .analogy{background:rgba(108,92,231,.08);border-left:3px solid #6c5ce7;padding:10px 14px;border-radius:0 8px 8px 0;margin-bottom:12px;font-size:13px;color:#d0d0ff}
-  .meaning{background:rgba(85,239,196,.06);border-left:3px solid #55efc4;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:#b0f0d8}
-  .model-card .source{display:inline-block;margin-top:12px;font-size:11px;color:#888;border:1px solid rgba(255,255,255,.08);padding:3px 10px;border-radius:12px}
-  .model-card .source:hover{border-color:#a29bfe;color:#a29bfe}
+  /* ===== CARDS ===== */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+  .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;transition:all .3s;opacity:0;transform:translateY(24px)}
+  .card.visible{opacity:1;transform:translateY(0)}
+  .card:hover{border-color:rgba(108,92,231,0.35);background:rgba(108,92,231,0.04);transform:translateY(-2px)}
+  .card-tag{display:inline-block;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:700;margin-bottom:10px}
+  .tag-release{background:rgba(108,92,231,0.18);color:#a29bfe}
+  .tag-arch{background:rgba(85,239,196,0.18);color:#55efc4}
+  .tag-hardware{background:rgba(253,203,110,0.18);color:#fdcb6e}
+  .tag-tool{background:rgba(253,121,168,0.18);color:#fd79a8}
+  .tag-skill{background:rgba(0,206,209,0.18);color:#00ced1}
+  .card h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
+  .card p{font-size:13.5px;color:#bbb;margin-bottom:6px}
+  .card .meta{font-size:12px;color:#777;margin-top:8px}
+  .card .meta a{color:#a29bfe;text-decoration:none}
+  .card .meta a:hover{text-decoration:underline}
 
-  /* ===== SKILL CARD ===== */
-  .skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:20px}
-  @media(max-width:560px){.skill-grid{grid-template-columns:1fr}}
-  .skill-card{background:linear-gradient(145deg,rgba(25,25,40,.8),rgba(15,15,25,.9));border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px;position:relative;overflow:hidden;transition:transform .3s}
-  .skill-card:hover{transform:translateY(-3px)}
-  .skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#fd79a8,#a29bfe)}
-  .skill-card.cyan-top::before{background:linear-gradient(90deg,#55efc4,#00cec9)}
-  .skill-num{font-size:11px;font-weight:700;color:#fd79a8;margin-bottom:6px;letter-spacing:1px}
-  .skill-card.cyan-top .skill-num{color:#55efc4}
-  .skill-name{font-size:17px;font-weight:700;color:#fff;margin-bottom:10px}
-  .skill-steps{font-size:13px;color:#ccc;line-height:1.8;margin-bottom:10px}
-  .skill-steps strong{color:#fdcb6e}
-  .skill-heat{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#888;margin-bottom:8px}
-  .heat-bar{width:80px;height:6px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden}
-  .heat-fill{height:100%;border-radius:3px}
-  .heat-fill.high{background:linear-gradient(90deg,#55efc4,#00cec9);width:85%}
-  .heat-fill.mid{background:linear-gradient(90deg,#fdcb6e,#f39c12);width:65%}
-  .heat-fill.hot{background:linear-gradient(90deg,#ff7675,#d63031);width:95%}
-  .skill-source{font-size:11px;color:#888}
-  .skill-source a{color:#a29bfe;font-size:11px}
+  /* ===== METAPHOR + MEANING ===== */
+  .explain-box{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .explain-item{padding:10px 14px;border-radius:10px;font-size:12.5px}
+  .explain-metaphor{background:rgba(253,203,110,0.08);border:1px solid rgba(253,203,110,0.15);color:#fdcb6e}
+  .explain-meaning{background:rgba(108,92,231,0.08);border:1px solid rgba(108,92,231,0.15);color:#a29bfe}
+  .explain-label{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;display:block}
 
   /* ===== BUILD BOX ===== */
-  .build-box{margin-top:12px;border:1px solid rgba(85,239,196,.25);border-radius:10px;padding:14px 18px;background:linear-gradient(135deg,rgba(85,239,196,.06),rgba(108,92,231,.06));position:relative;overflow:hidden}
+  .build-box{margin-top:12px;border:1px solid rgba(85,239,196,0.25);border-radius:10px;padding:14px 18px;background:linear-gradient(135deg,rgba(85,239,196,0.06),rgba(108,92,231,0.06));position:relative;overflow:hidden}
   .build-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#55efc4,#6c5ce7,#fd79a8)}
   .build-badge{display:inline-flex;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700}
-  .badge-yes{background:rgba(85,239,196,.2);color:#55efc4}
-  .badge-better{background:rgba(108,92,231,.2);color:#a29bfe}
-  .badge-partial{background:rgba(253,203,110,.2);color:#fdcb6e}
-  .build-title{font-size:13px;font-weight:700;color:#ddd;margin:8px 0 4px}
-  .build-desc{font-size:12px;color:#aaa;line-height:1.6}
-  .build-cta{display:inline-block;margin-top:8px;padding:5px 14px;border-radius:8px;background:linear-gradient(135deg,rgba(85,239,196,.15),rgba(108,92,231,.15));border:1px solid rgba(85,239,196,.3);font-size:11px;font-weight:600;color:#55efc4;cursor:pointer;transition:all .2s}
-  .build-cta:hover{background:linear-gradient(135deg,rgba(85,239,196,.25),rgba(108,92,231,.2));border-color:#55efc4}
+  .badge-yes{background:rgba(85,239,196,0.2);color:#55efc4}
+  .badge-better{background:rgba(108,92,231,0.2);color:#a29bfe}
+  .badge-partial{background:rgba(253,203,110,0.2);color:#fdcb6e}
+  .build-title{font-weight:700;font-size:13px;color:#fff;margin:8px 0 4px}
+  .build-desc{font-size:12.5px;color:#bbb;line-height:1.6}
+  .build-cta{display:inline-block;margin-top:8px;padding:5px 14px;border-radius:8px;background:linear-gradient(135deg,rgba(85,239,196,0.15),rgba(108,92,231,0.15));border:1px solid rgba(85,239,196,0.3);font-size:11px;font-weight:600;color:#55efc4;cursor:pointer;text-decoration:none}
 
-  /* ===== OFFICE CARDS ===== */
-  .office-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
-  .office-card{background:linear-gradient(145deg,rgba(25,25,40,.8),rgba(15,15,25,.9));border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px;position:relative;overflow:hidden}
-  .office-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#fdcb6e,#f39c12)}
-  .office-name{font-size:18px;font-weight:700;color:#fdcb6e;margin-bottom:6px}
-  .office-org{font-size:12px;color:#888;margin-bottom:14px}
-  .office-usecase{margin-bottom:10px}
-  .usecase-label{font-size:12px;font-weight:700;color:#a29bfe;margin-bottom:4px}
-  .usecase-desc{font-size:13px;color:#ccc;line-height:1.6}
-  .office-source{font-size:11px;color:#888;margin-top:10px}
-  .office-source a{color:#a29bfe}
-
-  /* ===== COMPARISON TABLE ===== */
-  .compare-table{width:100%;border-collapse:collapse;margin-top:24px;border-radius:12px;overflow:hidden}
-  .compare-table th{background:rgba(108,92,231,.15);color:#a29bfe;padding:12px 16px;font-size:13px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
-  .compare-table td{padding:10px 16px;font-size:13px;border-bottom:1px solid rgba(255,255,255,.04);color:#ccc}
-  .compare-table tr:hover td{background:rgba(255,255,255,.02)}
-  .fit-high{color:#55efc4;font-weight:600}
-  .fit-mid{color:#fdcb6e;font-weight:600}
+  /* ===== PROMPT BLOCK ===== */
+  .prompt-block{margin-top:10px;background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.08);border-left:3px solid #00ced1;border-radius:8px;padding:12px 14px;font-family:'SF Mono','Consolas',monospace;font-size:11.5px;color:#9fe6e0;line-height:1.55;white-space:pre-wrap}
 
   /* ===== STATS ROW ===== */
-  .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:28px}
-  .stat-card{background:linear-gradient(145deg,rgba(30,30,50,.7),rgba(15,15,25,.8));border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;text-align:center}
-  .stat-num{font-size:32px;font-weight:800;background:linear-gradient(135deg,#a29bfe,#fd79a8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:36px}
+  .stat-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:20px;text-align:center}
+  .stat-num{font-size:32px;font-weight:900;background:linear-gradient(135deg,#a29bfe,#55efc4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .stat-label{font-size:12px;color:#888;margin-top:4px}
 
-  /* ===== CHART ===== */
-  .bar-chart{margin-top:28px}
-  .bar-row{display:flex;align-items:center;margin-bottom:10px;gap:12px}
-  .bar-label{width:140px;font-size:13px;color:#ccc;text-align:right;flex-shrink:0}
-  .bar-track{flex:1;height:22px;background:rgba(255,255,255,.04);border-radius:6px;overflow:hidden;position:relative}
-  .bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:11px;font-weight:700;color:#fff;transition:width 1.5s ease}
-  .bar-fill.g1{background:linear-gradient(90deg,#6c5ce7,#a29bfe)}
-  .bar-fill.g2{background:linear-gradient(90deg,#00cec9,#55efc4)}
-  .bar-fill.g3{background:linear-gradient(90deg,#fd79a8,#e84393)}
-  .bar-fill.g4{background:linear-gradient(90deg,#fdcb6e,#f39c12)}
-  .bar-fill.g5{background:linear-gradient(90deg,#0984e3,#74b9ff)}
-  .bar-fill.g6{background:linear-gradient(90deg,#d63031,#ff7675)}
-  .bar-fill.g7{background:linear-gradient(90deg,#e17055,#fab1a0)}
-  .bar-fill.g8{background:linear-gradient(90deg,#00b894,#55efc4)}
+  /* ===== BAR CHART ===== */
+  .bar-chart{margin:24px 0;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:24px}
+  .bar-chart h4{font-size:14px;color:#ddd;margin-bottom:18px;font-weight:700}
+  .bar-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .bar-label{width:140px;font-size:12px;color:#bbb;text-align:right;flex-shrink:0}
+  .bar-track{flex:1;height:24px;background:rgba(255,255,255,0.04);border-radius:6px;overflow:hidden;position:relative}
+  .bar-fill{height:100%;border-radius:6px;width:0;transition:width 1.6s cubic-bezier(.22,1,.36,1);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:11px;font-weight:700;color:#fff}
+
+  /* ===== OFFICE 3-COL ===== */
+  .office-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+  .office-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;transition:all .3s;opacity:0;transform:translateY(24px)}
+  .office-card.visible{opacity:1;transform:translateY(0)}
+  .office-card:hover{border-color:rgba(253,203,110,0.35);transform:translateY(-2px)}
+  .office-card h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px}
+  .office-card .tool-sub{font-size:12px;color:#fdcb6e;margin-bottom:12px}
+  .use-case{font-size:13px;color:#ccc;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px}
+  .use-case:last-child{border-bottom:none}
+  .use-case .num{color:#fdcb6e;font-weight:700;flex-shrink:0}
+
+  /* ===== COMPARE TABLE ===== */
+  .cmp-wrap{overflow-x:auto;margin-top:28px}
+  table.cmp{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+  table.cmp th,table.cmp td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.07)}
+  table.cmp th{color:#fdcb6e;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+  table.cmp td{color:#ccc}
+  table.cmp tr:hover td{background:rgba(255,255,255,0.02)}
+  .fit{display:inline-block;padding:2px 9px;border-radius:8px;font-size:11px;font-weight:700}
+  .fit-high{background:rgba(85,239,196,0.18);color:#55efc4}
+  .fit-mid{background:rgba(253,203,110,0.18);color:#fdcb6e}
+  .fit-low{background:rgba(253,121,168,0.18);color:#fd79a8}
 
   /* ===== FOOTER ===== */
-  .footer{text-align:center;padding:40px 20px;border-top:1px solid rgba(255,255,255,.06);margin-top:60px;color:#555;font-size:12px;line-height:1.8}
-
-  /* ===== ANIMATIONS ===== */
-  .fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-  .fade-in.visible{opacity:1;transform:translateY(0)}
+  footer{max-width:1200px;margin:40px auto 0;padding:32px 24px 60px;border-top:1px solid rgba(255,255,255,0.06);text-align:center}
+  footer .disc{font-size:12px;color:#777;margin-top:10px;line-height:1.7}
+  footer .fdate{font-size:13px;color:#aaa;font-weight:600}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="top-nav">
   <div class="nav-inner">
-    <a href="#models" class="nav-btn" onclick="this.classList.add('active')">🤖 AI 大模型更新</a>
-    <a href="#marketing" class="nav-btn" onclick="this.classList.add('active')">📈 E-Marketing 技能</a>
-    <a href="#stock" class="nav-btn" onclick="this.classList.add('active')">📊 股票分析技能</a>
-    <a href="#office" class="nav-btn" onclick="this.classList.add('active')">💼 辦公應用</a>
+    <div class="nav-brand">⚡ AI 日報</div>
+    <div class="nav-links">
+      <a href="#models">🧠 大模型</a>
+      <a href="#marketing">📣 行銷技能</a>
+      <a href="#stock">📈 股票技能</a>
+      <a href="#office">🗂 辦公應用</a>
+    </div>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <h1>AI 日報</h1>
-  <div class="date">2026 年 5 月 31 日（星期日）</div>
+  <div class="date">2026 年 6 月 7 日 · 星期日</div>
+  <p class="sub">大模型更新、行銷與股票分析「技能」、辦公應用場景，以及每個技能的 Claude 可建置性評估。</p>
 </div>
 
-<div class="container">
-
-<!-- ===== STATS ROW ===== -->
-<div class="stats-row fade-in">
-  <div class="stat-card">
-    <div class="stat-num">8</div>
-    <div class="stat-label">大模型動態追蹤</div>
+<!-- ===================== A. 大模型 ===================== -->
+<section class="section" id="models">
+  <div class="section-header">
+    <div class="icon icon-model">🧠</div>
+    <h2>A. AI 大模型更新</h2>
   </div>
-  <div class="stat-card">
-    <div class="stat-num">5+5</div>
-    <div class="stat-label">行銷 / 股票分析技能</div>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-num">89%</div><div class="stat-label">Polymarket 預估 6/30 前三大新模型發布機率</div></div>
+    <div class="stat-card"><div class="stat-num">4×</div><div class="stat-label">Gemini 3.5 Flash 相對同級模型推論速度</div></div>
+    <div class="stat-card"><div class="stat-num">10M</div><div class="stat-label">Llama 4 Scout 最長上下文 tokens</div></div>
+    <div class="stat-card"><div class="stat-num">88.4%</div><div class="stat-label">Qwen 3.5 開源版 GPQA Diamond 領先分數</div></div>
   </div>
-  <div class="stat-card">
-    <div class="stat-num">3</div>
-    <div class="stat-label">辦公應用深度解析</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-num">10</div>
-    <div class="stat-label">Claude 可建置評估</div>
-  </div>
-</div>
 
-<!-- ========================================== -->
-<!-- SECTION A: AI 大模型更新 -->
-<!-- ========================================== -->
-<div id="models" class="section fade-in">
-  <h2 class="section-title purple">🤖 AI 大模型更新</h2>
+  <div class="card-grid">
 
-  <!-- BAR CHART -->
-  <div class="bar-chart fade-in">
-    <div class="bar-row"><div class="bar-label">Claude Opus 4.8</div><div class="bar-track"><div class="bar-fill g1" style="width:92%">92</div></div></div>
-    <div class="bar-row"><div class="bar-label">GPT-5.5 Instant</div><div class="bar-track"><div class="bar-fill g3" style="width:89%">89</div></div></div>
-    <div class="bar-row"><div class="bar-label">Gemini 3.5 Flash</div><div class="bar-track"><div class="bar-fill g2" style="width:88%">88</div></div></div>
-    <div class="bar-row"><div class="bar-label">DeepSeek V4 Pro</div><div class="bar-track"><div class="bar-fill g4" style="width:86%">86</div></div></div>
-    <div class="bar-row"><div class="bar-label">Grok 4.3</div><div class="bar-track"><div class="bar-fill g6" style="width:84%">84</div></div></div>
-    <div class="bar-row"><div class="bar-label">Qwen 3.7 Max</div><div class="bar-track"><div class="bar-fill g7" style="width:83%">83</div></div></div>
-    <div class="bar-row"><div class="bar-label">Gemma 4</div><div class="bar-track"><div class="bar-fill g8" style="width:72%">72</div></div></div>
-    <div class="bar-row"><div class="bar-label">Llama 4 Scout</div><div class="bar-track"><div class="bar-fill g5" style="width:70%">70</div></div></div>
-  </div>
-  <p style="text-align:right;font-size:11px;color:#555;margin-top:4px">* 綜合評分參考：Artificial Analysis Intelligence Index / Terminal-Bench / MMMU-Pro</p>
-
-  <div class="model-grid" style="margin-top:28px">
-
-    <!-- Card 1: Claude Opus 4.8 -->
-    <div class="model-card c-purple fade-in">
-      <div class="model-name">Claude Opus 4.8</div>
-      <div class="model-org">Anthropic · 2026-05-28</div>
-      <div class="analogy">💡 白話比喻：像一個會自己抓漏洞的資深工程師——不只寫得好，還會主動告訴你哪裡不確定。</div>
-      <div class="meaning">📌 這代表什麼：Opus 4.8 在自我懷疑能力上大幅進化，比 4.7 少 4 倍漏標程式錯誤。新增 Effort Control 讓用戶控制思考深度，Fast 模式速度提升 2.5 倍、成本降為三分之一。Dynamic Workflows 讓 Claude Code 可以拆解超大規模問題，適合企業級開發場景。</div>
-      <a class="source" href="https://www.anthropic.com/news/claude-opus-4-8" target="_blank">來源：Anthropic Blog</a>
-    </div>
-
-    <!-- Card 2: GPT-5.5 Instant -->
-    <div class="model-card c-pink fade-in">
-      <div class="model-name">GPT-5.5 Instant</div>
-      <div class="model-org">OpenAI · 2026-05-05 (免費版上線)</div>
-      <div class="analogy">💡 白話比喻：像一個有超強記憶力的助理——能翻你以前的對話和信件來回答問題。</div>
-      <div class="meaning">📌 這代表什麼：GPT-5.5 Instant 幻覺率下降 52.5%，字數精簡 30%。最大亮點是可搜索歷史對話、檔案和 Gmail 做個人化回答，記憶來源完全透明可刪除修正。數學 AIME 2025 從 65.4 升到 81.2。已向免費用戶開放，是 OpenAI 歷來最強的預設模型。</div>
-      <a class="source" href="https://openai.com/index/gpt-5-5-instant/" target="_blank">來源：OpenAI Blog</a>
-    </div>
-
-    <!-- Card 3: Gemini 3.5 Flash -->
-    <div class="model-card c-cyan fade-in">
-      <div class="model-name">Gemini 3.5 Flash</div>
-      <div class="model-org">Google · 2026-05-19 (I/O 2026)</div>
-      <div class="analogy">💡 白話比喻：像一個速度飛快的全能特工——用旗艦級智商做 Flash 級價格的事。</div>
-      <div class="meaning">📌 這代表什麼：Gemini 3.5 Flash 在多項基準上超越上一代 Pro 模型，輸出速度是其他前沿模型的 4 倍，成本不到一半。1M token 上下文、全模態輸入，在內部測試中能從零建構作業系統。它將驅動 Gemini Spark 個人 AI Agent，標誌著 Google 從聊天機器人全面轉向 Agent 戰略。</div>
-      <a class="source" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank">來源：Google Blog</a>
-    </div>
-
-    <!-- Card 4: DeepSeek V4 -->
-    <div class="model-card c-yellow fade-in">
-      <div class="model-name">DeepSeek V4 Pro / Flash</div>
-      <div class="model-org">DeepSeek · 2026-04-24</div>
-      <div class="analogy">💡 白話比喻：像是以十分之一的油耗跑出九成性能的賽車——開源界的性價比王。</div>
-      <div class="meaning">📌 這代表什麼：V4 Pro 擁有 1.6T 參數（49B 啟動）、1M context，KV cache 僅需 V3.2 的 10%，推理 FLOPs 僅 27%。採用 CSA+HCA 混合注意力和流形超連接（mHC），在開源模型中數學/STEM/程式碼全面領先。Flash 版 API 低至 $0.14/M tokens，極其適合高吞吐量部署。</div>
-      <a class="source" href="https://api-docs.deepseek.com/news/news260424" target="_blank">來源：DeepSeek API Docs</a>
-    </div>
-
-    <!-- Card 5: Grok 4.3 -->
-    <div class="model-card c-red fade-in">
-      <div class="model-name">Grok 4.3</div>
-      <div class="model-org">xAI · 2026-04-30</div>
-      <div class="analogy">💡 白話比喻：像是一個能看能聽能上網查資料的全感官助手——而且報價最便宜。</div>
-      <div class="meaning">📌 這代表什麼：Grok 4.3 支援 1M context、原生視訊輸入、語音合成與語音辨識（25 語言），定價僅 $1.25/$2.50 per M tokens，是目前最具性價比的前沿多模態模型之一。即時語音模式搭配攝影機互動，讓 xAI 直接挑戰 GPT-4o 的即時多模態體驗。</div>
-      <a class="source" href="https://x.ai/news/grok-4" target="_blank">來源：xAI News</a>
-    </div>
-
-    <!-- Card 6: Qwen 3.7 Max -->
-    <div class="model-card c-orange fade-in">
-      <div class="model-name">Qwen 3.7 Max</div>
-      <div class="model-org">Alibaba · 2026-05-20</div>
-      <div class="analogy">💡 白話比喻：像中國隊派出的全能選手——Agent 能力直接叫板 Opus 4.6，價格卻只要一半。</div>
-      <div class="meaning">📌 這代表什麼：阿里在雲端峰會發布的旗艦 Agent 模型，1M context，Intelligence Index 得分 56.6，在 Terminal-Bench 2.0 和 SWE-Bench Pro 上超越 Claude Opus 4.6 Max。定價 $2.50/$7.50 per M tokens，約為 Opus 4.7 的半價。但注意為閉源模型，不可本地部署。</div>
-      <a class="source" href="https://www.digitalapplied.com/blog/qwen-3-7-max-alibaba-flagship-ai-model-2026" target="_blank">來源：DigitalApplied</a>
-    </div>
-
-    <!-- Card 7: Gemma 4 -->
-    <div class="model-card c-green fade-in">
-      <div class="model-name">Gemma 4</div>
-      <div class="model-org">Google · 2026-05 (Apache 2.0)</div>
-      <div class="analogy">💡 白話比喻：像是 Google 送給開發者的「隨你改」推理引擎——完全開源、專為 Agent 設計。</div>
-      <div class="meaning">📌 這代表什麼：Gemma 4 系列專為高階推理和 Agent 工作流設計，Apache 2.0 授權讓開發者可自由修改和商用。在本地部署、嵌入式裝置和自訂 Agent 場景中，Gemma 4 是目前最強的開源選擇之一，特別適合不想被 API 綁定的團隊。</div>
-      <a class="source" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank">來源：Google Blog</a>
-    </div>
-
-    <!-- Card 8: Llama 4 Scout/Maverick -->
-    <div class="model-card c-blue fade-in">
-      <div class="model-name">Llama 4 Scout / Maverick</div>
-      <div class="model-org">Meta · 持續更新中</div>
-      <div class="analogy">💡 白話比喻：像一本 1000 萬頁的書能一次讀完的多語言翻譯官——context 最長的開源模型。</div>
-      <div class="meaning">📌 這代表什麼：Scout 提供 10M token context window（開源模型之最），MoE 架構（17B 啟動/109B 總），原生多模態（文字+圖像輸入），支援 12 種語言。Maverick 則有 400B 總參數/128 專家。30T+ tokens 訓練資料是 Llama 3 的兩倍，代表開源社群已正式進入超長上下文時代。</div>
-      <a class="source" href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/" target="_blank">來源：Meta AI Blog</a>
-    </div>
-
-  </div>
-</div>
-
-<!-- ========================================== -->
-<!-- SECTION B: E-Marketing 技能 -->
-<!-- ========================================== -->
-<div id="marketing" class="section fade-in">
-  <h2 class="section-title pink">📈 E-Marketing 技能</h2>
-  <div class="disclaimer-box">以下是社群中討論最多的 AI 行銷「技能／技巧／工作流」，而非商品推薦。焦點在於：你可以學會什麼、怎麼自己動手做。</div>
-
-  <div class="skill-grid">
-
-    <!-- Skill 1 -->
-    <div class="skill-card fade-in">
-      <div class="skill-num">SKILL #1</div>
-      <div class="skill-name">SEO Prompt Library 系統建置法</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>將 SEO 工作流拆解為可重複使用的結構化 Prompt 模板，包含關鍵字聚類、Meta 標籤生成、內容簡報、Schema 標記、FAQ 組裝五大模組。<br><br>
-        <strong>操作步驟：</strong>① 為每個可重複的 SEO 任務建立標準 Prompt（指定角色 → 提供精確上下文 → 定義輸出格式 → 設定品質限制）② 建立團隊共享 Prompt 文件，每階段工作流都可直接取用 ③ 用 AI 做痛點挖掘取代傳統關鍵字列表<br><br>
-        <strong>核心 Prompt 範例：</strong>「你是 SEO 內容策略師。目標關鍵字：[X]，受眾：[Y]，競品頁面：[Z]。輸出 JSON 格式包含：primary keyword, LSI phrases, meta title (≤60字), meta description (≤155字), 3 個 FAQ, content brief outline。」
+    <div class="card">
+      <span class="card-tag tag-release">已發布 · GA</span>
+      <h3>Gemini 3.5 Flash</h3>
+      <p>Google 已全面開放（GA），主打「前沿級智慧、4 倍速度」。定價 $1.50/$9 每百萬 tokens、1M 上下文窗口，Terminal-Bench 2.1 達 76.2%，在程式與 agent 任務上超越 Gemini 3.1 Pro。也是 Antigravity 2.0 IDE 的底層引擎。</p>
+      <div class="explain-box">
+        <div class="explain-item explain-metaphor"><span class="explain-label">白話說明</span>像一個又快又便宜的全能助理，速度翻倍但智商沒降。</div>
+        <div class="explain-item explain-meaning"><span class="explain-label">這代表什麼</span>「速度＋成本」成為新戰場，不再只比誰分數最高。</div>
       </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill hot"></div></div> 極高</div>
-      <div class="skill-source">出處：<a href="https://www.w3era.com/blog/seo/prompt-engineering-seo/" target="_blank">W3Era</a> · <a href="https://expertaiprompts.blog/post/seo-in-2026-strategic-ai-prompts-guide" target="_blank">ExpertAIPrompts</a></div>
+      <p class="meta">來源：<a href="https://llm-stats.com/llm-updates" target="_blank">llm-stats.com</a></p>
+    </div>
+
+    <div class="card">
+      <span class="card-tag tag-release">即將發布</span>
+      <h3>三大旗艦同期登場：GPT-5.6 / Gemini 3.5 Pro / Claude Mythos 1</h3>
+      <p>市場普遍預期六月內這三款旗艦模型將密集發布，Polymarket 給出 6/30 前發布機率約 89%。屆時 OpenAI、Google、Anthropic 將在同一個月正面對決。</p>
+      <div class="explain-box">
+        <div class="explain-item explain-metaphor"><span class="explain-label">白話說明</span>三家車廠同月發表新旗艦，逼你直接比規格。</div>
+        <div class="explain-item explain-meaning"><span class="explain-label">這代表什麼</span>升級節奏壓縮到「以月計」，跟進成本與選型難度同步上升。</div>
+      </div>
+      <p class="meta">來源：<a href="https://centerbit.co/en/blog/ai-rumors-june-2026-gpt-5-6-gemini-3-5-pro-claude-mythos" target="_blank">centerbit.co</a></p>
+    </div>
+
+    <div class="card">
+      <span class="card-tag tag-release">近期版本</span>
+      <h3>Claude Opus 4.8</h3>
+      <p>Anthropic 最新一代旗艦，延續長文件分析與細膩推理的強項。在需要跨多份長文件、保持邏輯一致性的任務上仍被視為標竿；下一步傳將推出代號 Mythos 的新版。</p>
+      <div class="explain-box">
+        <div class="explain-item explain-metaphor"><span class="explain-label">白話說明</span>擅長啃完整本厚報告還能前後不矛盾的學霸。</div>
+        <div class="explain-item explain-meaning"><span class="explain-label">這代表什麼</span>長文件與嚴謹推理場景（法律、財報、研究）首選之一。</div>
+      </div>
+      <p class="meta">來源：<a href="https://llm-stats.com/ai-news" target="_blank">llm-stats.com</a></p>
+    </div>
+
+    <div class="card">
+      <span class="card-tag tag-arch">開源 · Apache 2.0</span>
+      <h3>Qwen 3.7 Max / Qwen 3.5 開源版</h3>
+      <p>阿里 Qwen 3.7 Max 於 5/20 發布；開源版 Qwen 3.5 採 Apache 2.0、397B 總參數／17B 啟用參數，在 GPQA Diamond 以 88.4% 領先開源權重模型。低成本陣營（DeepSeek、Z.AI GLM）持續逼近四大旗艦。</p>
+      <div class="explain-box">
+        <div class="explain-item explain-metaphor"><span class="explain-label">白話說明</span>免費開源卻能跟付費旗艦掰手腕的選手。</div>
+        <div class="explain-item explain-meaning"><span class="explain-label">這代表什麼</span>自建／本地部署越來越划算，不必凡事都付 API 費。</div>
+      </div>
+      <p class="meta">來源：<a href="https://whatllm.org/blog/new-ai-models-may-2026" target="_blank">whatllm.org</a></p>
+    </div>
+
+    <div class="card">
+      <span class="card-tag tag-arch">架構突破</span>
+      <h3>SubQ：首款商用次二次方 LLM（12M 上下文）</h3>
+      <p>SubQ 推出首款商用 subquadratic 架構模型，原生支援 1,200 萬 tokens 上下文。五月的關鍵字從「benchmark 最高分」轉向成本、延遲、硬體獨立性與架構創新——一年來首次最受矚目的不是分數最高的模型。</p>
+      <div class="explain-box">
+        <div class="explain-item explain-metaphor"><span class="explain-label">白話說明</span>換掉引擎內部設計，讓「讀超長內容」不再越讀越貴。</div>
+        <div class="explain-item explain-meaning"><span class="explain-label">這代表什麼</span>超長上下文成本下降，整本書／整個程式庫可一次餵入。</div>
+      </div>
+      <p class="meta">來源：<a href="https://whatllm.org/blog/new-ai-models-may-2026" target="_blank">whatllm.org</a></p>
+    </div>
+
+    <div class="card">
+      <span class="card-tag tag-tool">整合工具動態</span>
+      <h3>Gamma / Lovable / Higgsfield 與替代方案</h3>
+      <p>Gamma 把筆記轉成簡報／文件／網頁（免費起，Plus $9/月）；Lovable 用一句話生成簡易網頁 App；影音生成 Higgsfield 的熱門替代包括 Runway Gen-4（免費層）、Kling AI 3.0、Luma Dream Machine，以及免費無限額度的 Seedance 2.0。</p>
+      <div class="explain-box">
+        <div class="explain-item explain-metaphor"><span class="explain-label">白話說明</span>把「想法→簡報／網頁／影片」的步驟壓到一句指令。</div>
+        <div class="explain-item explain-meaning"><span class="explain-label">這代表什麼</span>內容生產門檻持續降低，選工具時免費替代方案值得先試。</div>
+      </div>
+      <p class="meta">來源：<a href="https://www.synthesia.io/post/ai-tools" target="_blank">synthesia.io</a> · <a href="https://shhots.ai/blog/higgsfield-ai-alternatives/" target="_blank">shhots.ai</a></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== B. 行銷技能 ===================== -->
+<section class="section" id="marketing">
+  <div class="section-header">
+    <div class="icon icon-marketing">📣</div>
+    <h2>B. E-Marketing 技能（5 個）</h2>
+  </div>
+
+  <div class="skill-disclaimer">
+    以下是社群中討論最多的 AI 行銷「技能／技巧／工作流」，而非商品推薦。焦點在於：你可以學會什麼、怎麼自己動手做。
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · 提示框架</span>
+      <h3>C.T.F. 提示框架（Context-Task-Format）</h3>
+      <p>社群公認最易上手的行銷提示結構：先寫 Context（你是誰、客群、定位）、再寫 Task（要 AI 做什麼）、最後寫 Format（長度、結構、語氣）。報導指出單篇貼文製作時間可從 4–6 小時壓到 30–45 分鐘。</p>
+      <div class="prompt-block">Context：我是[品牌]，客群是[受眾]，主打[賣點]。
+Task：寫 3 則 IG 貼文推廣[活動]。
+Format：每則 ≤120 字、含 1 個 CTA、3 個 hashtag、口吻活潑。</div>
+      <p class="meta">來源：<a href="https://genesysgrowth.com/blog/ai-prompt-engineering-for-marketers-complete-guide" target="_blank">genesysgrowth.com</a></p>
       <div class="build-box">
         <span class="build-badge badge-better">★ 可做更好</span>
-        <div class="build-title">Claude Skill：SEO Prompt Library Agent</div>
-        <div class="build-desc">Claude 可建立一個自動化 SEO Skill，整合關鍵字研究、內容簡報生成、Meta 標籤撰寫，輸出統一 JSON 格式。比手動維護 Prompt 文件更即時，能根據即時搜尋趨勢動態調整策略。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
+        <div class="build-title">Skill：「CTF 行銷文案產生器」</div>
+        <div class="build-desc">把 CTF 框架包成可重複呼叫的 Skill，預設你的品牌語氣與客群，每次只要丟主題就輸出多通路文案，比手打提示更穩定一致。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
       </div>
     </div>
 
-    <!-- Skill 2 -->
-    <div class="skill-card fade-in">
-      <div class="skill-num">SKILL #2</div>
-      <div class="skill-name">AI 超個人化 Email 行銷工作流</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>利用 LLM 的大上下文窗口，將 CRM 資料、瀏覽行為、購買歷史餵入 Prompt，生成針對個人旅程階段的超個人化信件，而非簡單的姓名替換。<br><br>
-        <strong>操作步驟：</strong>① 建立客戶分群 Prompt（根據行為數據分群）② 針對每個分群設計觸發條件和信件角度 ③ 用 Claude 生成主旨行 + 正文 + CTA 的多版本變體 ④ A/B 測試後將最佳 Prompt 存入模板庫<br><br>
-        <strong>成效數據：</strong>AI 個人化 Email 平均收益提升 3.2 倍，整合 AI 工作流的專案收益高出手動 41%。生產時間從兩週壓縮到兩天（6% 的團隊）。
-      </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill high"></div></div> 高</div>
-      <div class="skill-source">出處：<a href="https://blog.hubspot.com/marketing/ai-driven-email-personalization" target="_blank">HubSpot Blog</a> · <a href="https://genesysgrowth.com/blog/ai-prompt-engineering-for-marketers-complete-guide" target="_blank">GenesysGrowth</a></div>
-      <div class="build-box">
-        <span class="build-badge badge-better">★ 可做更好</span>
-        <div class="build-title">Claude Skill：Hyper-Personalized Email Generator</div>
-        <div class="build-desc">Claude 可直接讀取 CSV/Excel 客戶資料，自動分群並生成多版本個人化信件。支援 A/B 變體產出、主旨行優化建議，比傳統 Prompt 模板更能依據即時數據調整語調和 CTA。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
-      </div>
-    </div>
-
-    <!-- Skill 3 -->
-    <div class="skill-card fade-in">
-      <div class="skill-num">SKILL #3</div>
-      <div class="skill-name">End-to-End 社群內容生產線</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>建立「靈感捕捉 → AI 初稿 → 平台適配 → 排程發佈 → 數據回饋」的完整自動化迴圈，每一階段用結構化 Prompt 串接，減少人工介入 80%。<br><br>
-        <strong>操作步驟：</strong>① 靈感捕捉：用 Prompt 從長文/Podcast/影片摘要生成 5 個社群貼文角度 ② 平台適配：用 Prompt 模板將同一主題轉換為 IG caption / X 推文 / LinkedIn 長文 ③ 品牌語調校正：在 System Prompt 中鎖定品牌人設和禁用詞 ④ 數據回饋：將高互動貼文的模式回饋到 Prompt 中持續優化<br><br>
-        <strong>成效數據：</strong>使用 AI 工作流的行銷團隊每人產出提升 3–5 倍，每週省下 10–15 小時。
-      </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill hot"></div></div> 極高</div>
-      <div class="skill-source">出處：<a href="https://sociali.ai/blog/end-to-end-social-media-automation-workflow-2026" target="_blank">Sociali.ai</a> · <a href="https://storychief.io/blog/ai-content-workflows-for-marketing-teams" target="_blank">StoryChief</a></div>
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · 工作流</span>
+      <h3>內容再利用工作流（Content Repurposing）</h3>
+      <p>一份長內容（webinar／部落格）→ 自動拆成多通路素材。社群範本：「我有一段關於[主題]的 webinar，請拆成：1 篇部落格大綱、3 則社群貼文（標明平台）、給出席者與未出席者各 1 封 email、5 段短影音腳本」。一源多用、最大化單篇內容產值。</p>
+      <p class="meta">來源：<a href="https://blog.hubspot.com/marketing/ai-prompt-examples" target="_blank">blog.hubspot.com</a></p>
       <div class="build-box">
         <span class="build-badge badge-yes">✓ 可建置</span>
-        <div class="build-title">Claude Skill：Social Content Pipeline</div>
-        <div class="build-desc">Claude 可建立一個 Skill，從一篇文章或影片逐字稿自動生成多平台格式貼文草稿（IG / X / LinkedIn），內建品牌語調 System Prompt 和禁用詞過濾。每次執行直接輸出可用內容。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
+        <div class="build-title">Skill：「一源多用內容工廠」</div>
+        <div class="build-desc">輸入一份長文或逐字稿，自動產出部落格、社群、EDM、短影音腳本一整套，並依各平台字數與格式自動調整。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
       </div>
     </div>
 
-    <!-- Skill 4 -->
-    <div class="skill-card fade-in">
-      <div class="skill-num">SKILL #4</div>
-      <div class="skill-name">Multi-Agent 行銷鏈設計法</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>2026 最大的 Prompt Engineering 創新是 AI Agent 鏈——將單一行銷任務拆成多個 Agent 串聯：User Prompt → 研究 Agent → 摘要 Agent → 寫手 Agent → 編輯 Agent，每個 Agent 有獨立角色和品質閘門。<br><br>
-        <strong>操作步驟：</strong>① 定義行銷目標和交付物 ② 將任務拆解為 3–5 個 Agent 角色（Research → Synthesize → Write → Edit → QA）③ 每個 Agent 給予獨立 System Prompt、輸入格式和輸出規範 ④ 設定品質閘門：前一個 Agent 輸出需通過條件檢查才進入下一個<br><br>
-        <strong>核心 Prompt：</strong>「你是行銷研究 Agent。任務：蒐集 [主題] 的 5 個最新市場趨勢。輸出格式：每個趨勢含標題、數據佐證、行銷角度建議。完成後將結果傳給寫手 Agent。」
-      </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill high"></div></div> 高</div>
-      <div class="skill-source">出處：<a href="https://brollyai.com/prompt-engineering-roadmap/" target="_blank">BrollyAI Roadmap</a> · <a href="https://www.aiindm.com/ai-marketing-workflows/" target="_blank">AI in DM</a></div>
-      <div class="build-box">
-        <span class="build-badge badge-better">★ 可做更好</span>
-        <div class="build-title">Claude Skill：Marketing Agent Chain</div>
-        <div class="build-desc">Claude 透過 Sub-Agent 架構天然支援多步驟任務鏈。可建立一個 Skill 讓用戶只需輸入行銷主題，Claude 自動串聯研究、摘要、撰寫、編輯四步，每步有品質檢查，最終輸出完整行銷文件。比手動管理多個 Prompt 更流暢。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
-      </div>
-    </div>
-
-    <!-- Skill 5 -->
-    <div class="skill-card fade-in">
-      <div class="skill-num">SKILL #5</div>
-      <div class="skill-name">Prompt 工程四象限法（行銷版）</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>將行銷 Prompt 工程分為四個應用象限：① 內容與文案創作 ② 活動策略與規劃 ③ 數據解讀與報告 ④ 工作流自動化。每個象限有對應的 Prompt 設計原則和模板。<br><br>
-        <strong>操作步驟：</strong>① 內容象限：角色設定 + 受眾描述 + 語調指令 + 長度限制 ② 策略象限：目標 KPI + 預算限制 + 競品分析 Prompt ③ 數據象限：數據格式指定 + 視覺化輸出 + 異常值標記 ④ 自動化象限：觸發條件 + 循環邏輯 + 錯誤處理<br><br>
-        <strong>成效數據：</strong>企業雇用 Prompt 工程師薪資可達 $130K+，OpenAI、Anthropic、Google 等均在積極招募行銷領域 Prompt 專才。
-      </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill high"></div></div> 高</div>
-      <div class="skill-source">出處：<a href="https://harmukhtechnologies.in/prompt-engineering-for-marketers-2026/" target="_blank">HarmukhTech</a> · <a href="https://www.gend.co/blog/ai-prompts-for-marketing-2026" target="_blank">Gend.co</a></div>
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · 提示技巧</span>
+      <h3>客戶評論轉行銷素材</h3>
+      <p>把一則真實評論變成多種素材的提示技巧：「這是一則顧客評論：[貼上]。請產出：1 個案例研究標題、1 段 ≤30 字的見證圖文案、1 段官網見證頁落字、1 個帶評論情緒的 email 主旨」。用真實聲音驅動轉換。</p>
+      <p class="meta">來源：<a href="https://goconsensus.com/blog/35-proven-ai-sales-marketing-prompts" target="_blank">goconsensus.com</a></p>
       <div class="build-box">
         <span class="build-badge badge-yes">✓ 可建置</span>
-        <div class="build-title">Claude Skill：Marketing Prompt 4-Quadrant Wizard</div>
-        <div class="build-desc">Claude 可建立一個互動式 Skill，用戶選擇象限（內容/策略/數據/自動化），系統自動引導填寫關鍵參數，生成該象限的最佳實踐 Prompt 並直接執行，產出完整交付物。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
+        <div class="build-title">Skill：「評論→社會證明素材」</div>
+        <div class="build-desc">批次讀入評論／問卷回饋，自動分類情緒並產出見證圖文、案例標題、官網落字與 email 主旨，把口碑系統化變現。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · 開源 Skill 套件</span>
+      <h3>OpenClaudia 開源行銷 Skill 套件</h3>
+      <p>GitHub 上 34+（總計 63+ 模組）開源行銷 Skill，把 Claude Code 變成「整個行銷部門」，涵蓋 SEO、內容、email、廣告、分析與成長。MIT/開源、可自行 fork 改造，是學習 Skill 結構的好範本。</p>
+      <p class="meta">來源：<a href="https://github.com/OpenClaudia/openclaudia-skills" target="_blank">github.com/OpenClaudia</a></p>
+      <div class="build-box">
+        <span class="build-badge badge-partial">△ 部分可建置</span>
+        <div class="build-title">Skill：「精選行銷 Skill 包（在地化版）」</div>
+        <div class="build-desc">挑出最常用的幾支（SEO 稽核、EDM 序列、內容日曆）改寫成繁中在地版；接 GA4／廣告平台等需另接外部服務帳號。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · Agent 架構</span>
+      <h3>平行子代理行銷稽核（Parallel Subagents）</h3>
+      <p>社群熱門做法：用多個平行子代理一次完成「網站稽核→產文案→email 序列→廣告活動→競品情報→輸出客戶端 PDF 報告」。例如 ai-marketing-claude 的 15 支技能套件即以平行子代理運作，把整套交付流程自動化。</p>
+      <p class="meta">來源：<a href="https://github.com/zubair-trabzada/ai-marketing-claude" target="_blank">github.com/zubair-trabzada</a></p>
+      <div class="build-box">
+        <span class="build-badge badge-better">★ 可做更好</span>
+        <div class="build-title">Skill：「一鍵行銷稽核 → 交付包」</div>
+        <div class="build-desc">給一個網址，平行跑稽核、競品比較與文案產出，最後直接彙整成可交付的報告檔，比單線執行快上數倍。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
       </div>
     </div>
 
   </div>
-</div>
+</section>
 
-<!-- ========================================== -->
-<!-- SECTION C: 股票分析技能 -->
-<!-- ========================================== -->
-<div id="stock" class="section fade-in">
-  <h2 class="section-title cyan">📊 股票分析技能</h2>
-  <div class="disclaimer-box">以下是社群中討論最多的 AI 股票分析「技能／技巧／工作流」，而非商品推薦。焦點在於：你可以學會什麼、怎麼自己動手做。</div>
+<!-- ===================== C. 股票技能 ===================== -->
+<section class="section" id="stock">
+  <div class="section-header">
+    <div class="icon icon-stock">📈</div>
+    <h2>C. 股票分析技能（5 個）</h2>
+  </div>
 
-  <div class="skill-grid">
+  <div class="skill-disclaimer">
+    以下是社群中討論最多的 AI 股票分析「技能／技巧／工作流」，而非商品或投資建議。焦點在於：你可以學會什麼、怎麼自己動手做。
+  </div>
 
-    <!-- Skill 1 -->
-    <div class="skill-card cyan-top fade-in">
-      <div class="skill-num">SKILL #1</div>
-      <div class="skill-name">Financial Chain-of-Thought (FinCoT) Prompting</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>FinRobot 開源框架提出的金融專用思維鏈技術——讓 LLM 像分析師一樣逐步拆解財務問題：先識別指標 → 提取數據 → 計算推理 → 形成結論 → 標注信心度。<br><br>
-        <strong>操作步驟：</strong>① 定義分析目標（如「評估 TSMC 2026Q1 獲利前景」）② 設計 CoT Prompt：「Step 1: 列出影響獲利的關鍵指標。Step 2: 從最新財報提取數據。Step 3: 與同業比較。Step 4: 結論與信心度 (1-10)。」③ 搭配 Document Analysis Agent 餵入 10-K 報告<br><br>
-        <strong>成效數據：</strong>GitHub ⭐ 2.8K+，FinRobot Pro 已支援自動生成 equity research report。
-      </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill hot"></div></div> 極高</div>
-      <div class="skill-source">出處：<a href="https://github.com/AI4Finance-Foundation/FinRobot" target="_blank">GitHub: FinRobot</a></div>
+  <div class="card-grid">
+
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · 提示框架</span>
+      <h3>12 提示自建股票分析師</h3>
+      <p>社群熱傳的「12 個 copy-paste 提示」工作流：從選股篩選、基本面、技術面到風險，逐步組合成一個完整研究引擎，號稱用月費等級工具就能跑出研究級流程。重點在「拆成可複用的步驟」而非一句萬能提示。</p>
+      <p class="meta">來源：<a href="https://www.the-ai-corner.com/p/build-your-own-stock-analyst-claude-12-prompts-2026" target="_blank">the-ai-corner.com</a></p>
       <div class="build-box">
         <span class="build-badge badge-better">★ 可做更好</span>
-        <div class="build-title">Claude Skill：FinCoT Stock Analyzer</div>
-        <div class="build-desc">Claude 原生支援長上下文和結構化推理，可建立一個 Skill 直接讀取財報 PDF，自動執行 FinCoT 五步驟分析，輸出結構化研究報告。不需要額外部署 Python 框架，比 FinRobot 更輕量且可客製化。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
+        <div class="build-title">Skill：「12 步股票研究流水線」</div>
+        <div class="build-desc">把 12 個提示串成單一 Skill，依序執行並彙整成一份結構化報告，還能接資料源自動帶入最新數字，比手動貼提示更省力。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
       </div>
     </div>
 
-    <!-- Skill 2 -->
-    <div class="skill-card cyan-top fade-in">
-      <div class="skill-num">SKILL #2</div>
-      <div class="skill-name">Multi-Agent 交易決策框架</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>TradingAgents 開源框架模擬真實交易公司——部署基本面分析師、情緒分析師、技術分析師、風控官等多個 LLM Agent，各自獨立分析後進行辯論，最終形成交易決策。<br><br>
-        <strong>操作步驟：</strong>① 設定 Agent 角色（Bull Analyst / Bear Analyst / Risk Manager / Fundamentals / Technicals）② 每個 Agent 獨立分析同一標的 ③ 設計「辯論」環節讓 Agent 交叉質疑 ④ Risk Manager 做最終風險評估和倉位建議<br><br>
-        <strong>成效數據：</strong>TradingAgents v0.2.5（2026 年 5 月更新）已支援 GPT-5.5 和雙區域部署。GitHub Stars 持續成長中。
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · 提示技巧</span>
+      <h3>「讓 AI 攻擊你的 DCF」反向驗證法</h3>
+      <p>關鍵心法：別讓 AI 從零生 DCF（假設容易脫離現實），而是你自己建模、再請 AI 找出最激進的假設、並模擬關鍵變數變動後的結果。把 AI 當「魔鬼代言人」壓力測試，而非答案產生器。</p>
+      <div class="prompt-block">這是我的 DCF 模型與假設：[貼上]。
+請：①指出最激進/最脆弱的 3 個假設
+②各自做敏感度分析（±20%）
+③在保守情境下重算內在價值區間。</div>
+      <p class="meta">來源：<a href="https://www.improveprompt.ai/learn/top-10-stock-analysis-prompts-claude" target="_blank">improveprompt.ai</a></p>
+      <div class="build-box">
+        <span class="build-badge badge-yes">✓ 可建置</span>
+        <div class="build-title">Skill：「DCF 壓力測試器」</div>
+        <div class="build-desc">讀入你的試算表模型，自動找出脆弱假設、跑敏感度分析並輸出多情境估值區間，把反向驗證流程固定下來。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
       </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill high"></div></div> 高</div>
-      <div class="skill-source">出處：<a href="https://github.com/TauricResearch/TradingAgents" target="_blank">GitHub: TradingAgents</a></div>
+    </div>
+
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · CoT 設計</span>
+      <h3>FinRobot 財務 Chain-of-Thought</h3>
+      <p>開源平台 FinRobot 的核心方法：用 Financial CoT 提示把財務問題拆成邏輯步驟，搭配市場預測、文件分析、交易策略等專職 agent。是學習「金融推理鏈」設計的開源範本，可研究其提示結構再自用。</p>
+      <p class="meta">來源：<a href="https://github.com/AI4Finance-Foundation/FinRobot" target="_blank">github.com/AI4Finance-Foundation</a></p>
       <div class="build-box">
         <span class="build-badge badge-partial">△ 部分可建置</span>
-        <div class="build-title">Claude Skill：Multi-Perspective Stock Debate</div>
-        <div class="build-desc">Claude 可模擬多角色辯論（牛方/熊方/風控），在單一對話中產出多視角分析報告。即時市場數據串接需外部 API，但分析邏輯和辯論框架可完全在 Claude 內實現。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
+        <div class="build-title">Skill：「財報 CoT 拆解器」</div>
+        <div class="build-desc">套用 FinRobot 式的逐步推理框架解讀財報與年報；即時行情與大量歷史數據需另接資料 API 才能完整。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
       </div>
     </div>
 
-    <!-- Skill 3 -->
-    <div class="skill-card cyan-top fade-in">
-      <div class="skill-num">SKILL #3</div>
-      <div class="skill-name">Domain-Knowledge CoT 情緒分析策略</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>DK-CoT（Domain Knowledge Chain-of-Thought）將金融領域知識注入 Prompt，讓 LLM 在分析新聞情緒時不只看正負詞，還能理解財務語境中的隱含意義（如「營收增長放緩」=負面信號）。<br><br>
-        <strong>操作步驟：</strong>① 收集標的相關新聞/財報電話會議紀錄 ② 設計 DK-CoT Prompt：「你是金融情緒分析專家。分析以下文本的市場情緒。Step 1: 識別金融關鍵詞。Step 2: 判斷語境（樂觀/避險/模糊）。Step 3: 給出情緒分數 (-1 到 +1) 及理由。」③ 聚合多篇分析得出綜合情緒指數<br><br>
-        <strong>成效數據：</strong>學術研究顯示設計良好的 NLP 策略年化超額報酬 2-5%，財報電話會議語調是最強預測指標。
-      </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill high"></div></div> 高</div>
-      <div class="skill-source">出處：<a href="https://arxiv.org/pdf/2509.12611" target="_blank">arXiv: AD-FCoT</a> · <a href="https://pooya.blog/blog/nlp-market-sentiment-analysis-words-move-markets-2026/" target="_blank">Pooya Blog</a></div>
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · 多代理框架</span>
+      <h3>TradingAgents 多代理辯論框架</h3>
+      <p>開源框架模擬真實交易公司：基本面／情緒面／技術面分析師、研究員、交易員、風控彼此辯論再做決策。v0.2.5 已加入有依據的情緒分析師與 GPT-5.5 支援。學的是「角色分工＋辯論」的決策結構。</p>
+      <p class="meta">來源：<a href="https://github.com/tauricresearch/tradingagents" target="_blank">github.com/TauricResearch</a></p>
       <div class="build-box">
         <span class="build-badge badge-better">★ 可做更好</span>
-        <div class="build-title">Claude Skill：Financial Sentiment DK-CoT</div>
-        <div class="build-desc">Claude 天生擅長語境理解和 CoT 推理。可建立 Skill 批量分析新聞文本、財報逐字稿，輸出結構化情緒分數和推理鏈。相比 FinBERT 更靈活，能理解最新的產業術語和市場脈絡。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
+        <div class="build-title">Skill：「多空辯論決策室」</div>
+        <div class="build-desc">針對一檔標的，自動分派多頭、空頭、風控三方角色辯論並輸出結論與風險清單，把分析變成可重現的對抗式流程。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
       </div>
     </div>
 
-    <!-- Skill 4 -->
-    <div class="skill-card cyan-top fade-in">
-      <div class="skill-num">SKILL #4</div>
-      <div class="skill-name">AI 量化選股 Screener 工作流</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>用 LLM + 免費 API 建構華爾街級別的股票篩選器——結合基本面過濾、技術指標、AI 情緒分析三層篩選，讓個人投資者擁有機構級的選股能力。<br><br>
-        <strong>操作步驟：</strong>① 第一層：基本面過濾（P/E、ROE、營收成長率設定門檻）② 第二層：技術面過濾（均線排列、RSI、成交量異常）③ 第三層：AI 情緒過濾（新聞情緒分數 > 0.3）④ 生成排名報告含個股摘要和風險提示<br><br>
-        <strong>核心 Prompt：</strong>「分析以下 10 檔股票的基本面數據 [data]。為每檔股票評分 (1-100)，考量：營收成長 (30%)、獲利品質 (25%)、估值合理性 (25%)、動能 (20%)。輸出排名表格。」
-      </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill high"></div></div> 高</div>
-      <div class="skill-source">出處：<a href="https://medium.com/coinmonks/building-a-wall-street-grade-stock-screener-with-openclaw-ai-agents-and-free-apis-48cbeeadd9d5" target="_blank">Medium: Coinmonks</a> · <a href="https://medium.com/@kaveh.kamali/i-built-an-ai-powered-stock-analysis-platform-that-runs-entirely-on-open-source-4eddae5fd305" target="_blank">Medium: Kaveh Kamali</a></div>
+    <div class="card">
+      <span class="card-tag tag-skill">技能 · 工作流</span>
+      <h3>財報電話會議 / 盈餘解讀法</h3>
+      <p>社群常用工作流：用「JPMorgan 式」提示分析 whisper number 與歷史波動，搭配長文件解讀逐字稿。Claude 在長文件與細膩推理上被視為較強，適合一次餵入整份逐字稿做重點摘要與前後比對。</p>
+      <p class="meta">來源：<a href="https://thewenglab.substack.com/p/claude-for-investing-the-complete" target="_blank">thewenglab.substack.com</a></p>
       <div class="build-box">
-        <span class="build-badge badge-partial">△ 部分可建置</span>
-        <div class="build-title">Claude Skill：AI Stock Screener</div>
-        <div class="build-desc">Claude 可接收 CSV/Excel 格式的股票數據，執行多層篩選和評分，輸出排名報告。即時報價需外部 API 但分析邏輯、評分模型和報告生成全部可在 Claude 完成。搭配 Cowork 排程可做每日自動篩選。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
-      </div>
-    </div>
-
-    <!-- Skill 5 -->
-    <div class="skill-card cyan-top fade-in">
-      <div class="skill-num">SKILL #5</div>
-      <div class="skill-name">Vibe Trading：對話式交易研究助手</div>
-      <div class="skill-steps">
-        <strong>核心概念：</strong>一種新興的個人交易研究方法——不需要寫程式，透過對話方式描述交易假設，AI Agent 自動回測、分析基本面、生成策略報告。重點是「對話即回測」的工作流設計。<br><br>
-        <strong>操作步驟：</strong>① 用自然語言描述交易假設（如「當 RSI < 30 且營收年增 > 15% 時買入」）② Agent 自動將假設轉為回測邏輯 ③ 執行歷史回測並視覺化報告 ④ 根據結果對話式調整參數<br><br>
-        <strong>成效數據：</strong>Vibe-Trading 2026 年 5 月更新加入目標生命週期管理和 A 股每日回測功能。GitHub 開源、社群活躍。
-      </div>
-      <div class="skill-heat">社群熱度 <div class="heat-bar"><div class="heat-fill high"></div></div> 高</div>
-      <div class="skill-source">出處：<a href="https://github.com/HKUDS/Vibe-Trading" target="_blank">GitHub: Vibe-Trading</a> · <a href="https://github.com/HKUDS/AI-Trader" target="_blank">GitHub: AI-Trader</a></div>
-      <div class="build-box">
-        <span class="build-badge badge-partial">△ 部分可建置</span>
-        <div class="build-title">Claude Skill：Conversational Backtest Advisor</div>
-        <div class="build-desc">Claude 可接收交易假設並用 Python 在沙盒中執行回測邏輯，生成績效報告。即時行情資料需外部來源，但假設轉換、回測程式碼生成、結果解讀和策略調整建議可完全在 Claude 對話中完成。</div>
-        <div class="build-cta">💬 跟我說「幫我建」即可啟動</div>
+        <span class="build-badge badge-yes">✓ 可建置</span>
+        <div class="build-title">Skill：「財報會議速讀器」</div>
+        <div class="build-desc">丟入逐字稿即輸出：管理層語氣變化、與上季的差異、風險訊號與 3 點重點，把冗長會議壓成一頁摘要。</div>
+        <a class="build-cta">💬 跟我說「幫我建」即可啟動</a>
       </div>
     </div>
 
   </div>
-</div>
+</section>
 
-<!-- ========================================== -->
-<!-- SECTION D: 辦公應用 -->
-<!-- ========================================== -->
-<div id="office" class="section fade-in">
-  <h2 class="section-title yellow">💼 辦公應用</h2>
+<!-- ===================== D. 辦公應用 ===================== -->
+<section class="section" id="office">
+  <div class="section-header">
+    <div class="icon icon-office">🗂</div>
+    <h2>D. 辦公應用場景</h2>
+  </div>
 
   <div class="office-grid">
 
-    <!-- Office 1: Claude Cowork -->
-    <div class="office-card fade-in">
-      <div class="office-name">Claude Cowork</div>
-      <div class="office-org">Anthropic</div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景一：文件組裝與報告生成</div>
-        <div class="usecase-desc">丟一組來源檔案給 Cowork，它能自動組裝成結構化報告草稿。處理的是最耗時的「組裝和綜合」環節，留給你的只有精修。支援 Word、PowerPoint、Excel、PDF 多格式輸出。</div>
-      </div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景二：排程自動化任務</div>
-        <div class="usecase-desc">設定排程讓 Claude 每週五自動從分析儀表板拉指標放入報告模板、每天早上掃描 Email 摘要、定時產出 Slack 週報。適合重複性知識工作。</div>
-      </div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景三：跨平台資訊綜合</div>
-        <div class="usecase-desc">從通話記錄、Slack、CRM 筆記、Linear issue 中綜合回饋，識別跨平台模式並生成排序過的產品改善建議。已可連接 Google Drive、Gmail、DocuSign、FactSet。</div>
-      </div>
-      <div class="office-source">出處：<a href="https://techpp.com/2026/03/05/claude-cowork-use-cases/" target="_blank">TechPP</a> · <a href="https://buildtolaunch.substack.com/p/claude-cowork-use-cases-real-workflows" target="_blank">BuildToLaunch</a></div>
+    <div class="office-card">
+      <h3>Claude Code / Cowork</h3>
+      <div class="tool-sub">非工程師也能用的自動化助理</div>
+      <div class="use-case"><span class="num">1</span><span>桌面與檔案整理：指向資料夾說明分類規則，自動把散落檔案歸位，週一上工前清空桌面。</span></div>
+      <div class="use-case"><span class="num">2</span><span>商務流程自動化：LinkedIn 開發信、廣告活動管理、競品監控、CRM 補資料、政府表單填報。</span></div>
+      <div class="use-case"><span class="num">3</span><span>可複用工作流：首次設定競品分析花 15 分鐘建指令與情境檔，一個月後再跑只需 1 分鐘。</span></div>
+      <p class="meta" style="margin-top:12px">來源：<a href="https://www.xda-developers.com/ways-i-use-claude-code-that-dont-involve-coding/" target="_blank">xda-developers.com</a></p>
     </div>
 
-    <!-- Office 2: Google Antigravity 2.0 -->
-    <div class="office-card fade-in">
-      <div class="office-name">Google Antigravity 2.0</div>
-      <div class="office-org">Google · I/O 2026</div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景一：全棧原型快速產出</div>
-        <div class="usecase-desc">Agent 自動規劃架構、寫程式、開 Chrome 測試、修 Bug、部署——全程你只需看著。一句 Prompt 就能產出從 Google Sheet 讀取資料的 CRM，並自動串接 Calendar 提醒。</div>
-      </div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景二：Manager View 多 Agent 並行</div>
-        <div class="usecase-desc">新增的 Manager View 讓你同時觀察多個 Agent 在不同 workspace 非同步工作，適合需要同時推進多個功能模組的場景。搭配 CLI、SDK 和託管雲端 Agent 使用。</div>
-      </div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景三：互動式學習平台</div>
-        <div class="usecase-desc">Walkthrough 功能會在任務完成後生成敘事式解說——像資深工程師逐步講解他建了什麼、為什麼選這個設計模式、檔案如何連接。適合學習新框架或新語言。</div>
-      </div>
-      <div class="office-source">出處：<a href="https://thenextweb.com/news/google-antigravity-2-desktop-cli-sdk-io-2026" target="_blank">TNW</a> · <a href="https://dev.to/sundayonah/google-antigravity-20-is-the-io-2026-announcement-you-should-actually-care-about-3hc1" target="_blank">DEV Community</a></div>
+    <div class="office-card">
+      <h3>Google Antigravity 2.0</h3>
+      <div class="tool-sub">Agent-first AI IDE（Gemini 3.5 Flash 驅動）</div>
+      <div class="use-case"><span class="num">1</span><span>平行代理工作流：主編輯器寫前端的同時，另開 agent 獨立重構後端 API，完成後附 artifact 通知你審查。</span></div>
+      <div class="use-case"><span class="num">2</span><span>一句話建 App：從單一提示規劃、寫碼、測試到部署整個應用，附完整驗證測試。</span></div>
+      <div class="use-case"><span class="num">3</span><span>角色轉換：你從「打字寫碼」變成「產品經理」，指揮一群 Gemini agent 當你的工程團隊。</span></div>
+      <p class="meta" style="margin-top:12px">來源：<a href="https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/" target="_blank">marktechpost.com</a></p>
     </div>
 
-    <!-- Office 3: Gemini for Workspace -->
-    <div class="office-card fade-in">
-      <div class="office-name">Gemini for Workspace</div>
-      <div class="office-org">Google</div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景一：Workspace Studio 無程式碼工作流</div>
-        <div class="usecase-desc">用自然語言建立多步驟 AI 工作流——自動標記 Email、生成會前簡報文件、會後自動產出任務清單。完全不需要寫程式碼，在 Workspace 內即可完成。</div>
-      </div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景二：Sheets 自然語言建表</div>
-        <div class="usecase-desc">在 Google Sheets 中用自然語言建立和編輯整份試算表，Gemini 負責協調複雜的多步驟建構流程，可跨檔案、Email、Chat 和網路綜合數據。</div>
-      </div>
-      <div class="office-usecase">
-        <div class="usecase-label">🔹 場景三：Ask Gemini in Chat 統一入口</div>
-        <div class="usecase-desc">Gemini in Chat 變成所有工作的統一命令列——可以直接在聊天中生成文件、簡報、排程會議、用描述找檔案，不需要在多個 App 間切換。</div>
-      </div>
-      <div class="office-source">出處：<a href="https://workspace.google.com/blog/product-announcements/introducing-workspace-intelligence" target="_blank">Google Workspace Blog</a> · <a href="https://techcrunch.com/2026/03/18/the-gemini-powered-features-in-google-workspace-that-are-worth-using/" target="_blank">TechCrunch</a></div>
+    <div class="office-card">
+      <h3>Gemini for Workspace</h3>
+      <div class="tool-sub">嵌入 Gmail / Sheets / Docs 的助理</div>
+      <div class="use-case"><span class="num">1</span><span>Gmail：給主旨或幾個重點即生成語氣合宜的完整郵件；AI Inbox 過濾雜訊、長串對話自動摘要。</span></div>
+      <div class="use-case"><span class="num">2</span><span>Sheets：自然語言建表與填資料，AI 輔助輸入比手動快 9 倍；自動寫公式並解釋用途。</span></div>
+      <div class="use-case"><span class="num">3</span><span>Docs：「Help me create」整合你的檔案、郵件、聊天與網路資料，產出已排版初稿；長報告一鍵抓重點。</span></div>
+      <p class="meta" style="margin-top:12px">來源：<a href="https://www.buildfastwithai.com/blogs/gemini-google-workspace-features-guide" target="_blank">buildfastwithai.com</a></p>
     </div>
 
   </div>
 
-  <!-- COMPARISON TABLE -->
-  <table class="compare-table fade-in" style="margin-top:32px">
-    <thead>
-      <tr>
-        <th>功能面向</th>
-        <th>Claude Cowork</th>
-        <th>Antigravity 2.0</th>
-        <th>Gemini Workspace</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>文件生成（Word/PPT/Excel）</td>
-        <td class="fit-high">◉ 強</td>
-        <td class="fit-mid">○ 一般</td>
-        <td class="fit-high">◉ 強</td>
-      </tr>
-      <tr>
-        <td>程式碼/應用開發</td>
-        <td class="fit-mid">○ 一般</td>
-        <td class="fit-high">◉ 極強</td>
-        <td class="fit-mid">△ 有限</td>
-      </tr>
-      <tr>
-        <td>排程自動化</td>
-        <td class="fit-high">◉ 強</td>
-        <td class="fit-mid">△ 有限</td>
-        <td class="fit-high">◉ 強</td>
-      </tr>
-      <tr>
-        <td>多 Agent 並行</td>
-        <td class="fit-mid">○ 支援</td>
-        <td class="fit-high">◉ Manager View</td>
-        <td class="fit-mid">△ 有限</td>
-      </tr>
-      <tr>
-        <td>第三方整合</td>
-        <td class="fit-high">◉ MCP 生態系</td>
-        <td class="fit-mid">○ Google 生態</td>
-        <td class="fit-high">◉ Workspace 全家桶</td>
-      </tr>
-      <tr>
-        <td>適合對象</td>
-        <td>知識工作者、分析師</td>
-        <td>開發者、技術主管</td>
-        <td>一般辦公室使用者</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="cmp-wrap">
+    <table class="cmp">
+      <thead>
+        <tr><th>工具</th><th>最適族群</th><th>學習門檻</th><th>自動化深度</th><th>免費可用</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Claude Code / Cowork</td><td>個人／中小企業全流程自動化</td><td><span class="fit fit-mid">中</span></td><td><span class="fit fit-high">高</span></td><td><span class="fit fit-mid">部分</span></td></tr>
+        <tr><td>Google Antigravity 2.0</td><td>開發者／建 App 與內部工具</td><td><span class="fit fit-mid">中</span></td><td><span class="fit fit-high">高</span></td><td><span class="fit fit-high">是</span></td></tr>
+        <tr><td>Gemini for Workspace</td><td>已用 Google 辦公套件的團隊</td><td><span class="fit fit-high">低</span></td><td><span class="fit fit-mid">中</span></td><td><span class="fit fit-low">需訂閱</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 
-</div><!-- /container -->
+  <div class="bar-chart">
+    <h4>辦公自動化「上手速度」相對比較（社群觀察，數值為示意）</h4>
+    <div class="bar-row"><div class="bar-label">Gemini Workspace</div><div class="bar-track"><div class="bar-fill" data-w="90%" style="background:linear-gradient(90deg,#fdcb6e,#ffa500)">90</div></div></div>
+    <div class="bar-row"><div class="bar-label">Claude Code/Cowork</div><div class="bar-track"><div class="bar-fill" data-w="72%" style="background:linear-gradient(90deg,#a29bfe,#6c5ce7)">72</div></div></div>
+    <div class="bar-row"><div class="bar-label">Antigravity 2.0</div><div class="bar-track"><div class="bar-fill" data-w="65%" style="background:linear-gradient(90deg,#55efc4,#00ced1)">65</div></div></div>
+  </div>
+</section>
 
-<!-- FOOTER -->
-<div class="footer">
-  <p>AI 日報 — 2026 年 5 月 31 日</p>
-  <p>本報告內容基於公開資訊彙整，不構成投資建議。</p>
-  <p>Powered by Claude · 資料來源皆附連結，請點擊查閱原文。</p>
-</div>
+<footer>
+  <div class="fdate">AI 日報 · 2026 年 6 月 7 日</div>
+  <div class="disc">本報告內容基於公開資訊彙整，不構成投資建議。<br>「技能」區塊聚焦可學習、可自行操作的方法、提示與工作流，非商品推薦。</div>
+</footer>
 
-<!-- ===== SCROLL ANIMATION ===== -->
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const obs=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
-  },{threshold:0.1});
-  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-});
+  // 滾動淡入
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+  },{threshold:0.12});
+  document.querySelectorAll('.card,.office-card').forEach((el,i)=>{ el.style.transitionDelay=(i%4*0.06)+'s'; io.observe(el); });
+
+  // 長條圖
+  const bio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.querySelectorAll('.bar-fill').forEach(b=>{ b.style.width=b.dataset.w; }); bio.unobserve(e.target);} });
+  },{threshold:0.3});
+  document.querySelectorAll('.bar-chart').forEach(c=>bio.observe(c));
 </script>
+
 </body>
 </html>
